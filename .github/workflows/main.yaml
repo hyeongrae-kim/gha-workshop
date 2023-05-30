@@ -19,5 +19,5 @@ jobs:
           --header 'Content-type: applicatino/json' \
           --data-raw '{
             "roomid": "${{ secrets.WEBEX_ROOM_ID }}",
-            "text": "Message from GHA, hyeongrae"
+            "text": "Second Message from GHA, hyeongrae "
           }'
