@@ -18,6 +18,6 @@ jobs:
           --header 'Authorization: Bearer ${{ secrets.WEBEX_TOKEN }}' \
           --header 'Content-type: application/json' \
           --data-raw '{
-            "roomid": "${{ secrets.WEBEX_ROOM_ID }}",
+            "roomId": "${{ secrets.WEBEX_ROOM_ID }}",
             "text": "Second Message from GHA, hyeongrae "
           }'
