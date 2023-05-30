@@ -10,53 +10,36 @@ jobs:
 
     runs-on: 'ubuntu-latest'
 
-      steps:
-      - name: Say Hello World 1
-        shell: bash
-        run: |
-          echo "Hello World"
+    steps:
+    - name: Say Hello World 1
+      shell: bash
+      run: |
+        echo "Hello World"
 
   deploy-dev:
     name: 'Deploy to dev'
 
+    needs:
+      - build-test
+
     runs-on: 'ubuntu-latest'
 
-      steps:
-      - name: Say Hello World 1
-        shell: bash
-        run: |
-          echo "Hello World"
+    steps:
+    - name: Say Hello World 1
+      shell: bash
+      run: |
+        echo "Hello World"
 
   deploy-staging:
-    name: 'Deploy to staging'
+    name: 'Deploy to staging1'
+
+    needs:
+      - deploy-dev
 
     runs-on: 'ubuntu-latest'
 
-      steps:
-      - name: Say Hello World 1
-        shell: bash
-        run: |
-          echo "Hello World"
-
-  deploy-staging2:
-    name: 'Deploy to staging2'
-
-    runs-on: 'ubuntu-latest'
-
-      steps:
-      - name: Say Hello World 1
-        shell: bash
-        run: |
-          echo "Hello World"
-
-  deploy-staging3:
-    name: 'Deploy to staging3'
-
-    runs-on: 'ubuntu-latest'
-
-      steps:
-      - name: Say Hello World 1
-        shell: bash
-        run: |
-          echo "Hello World"
-  
+    steps:
+    - name: Say Hello World 1
+      shell: bash
+      run: |
+        echo "Hello World"
