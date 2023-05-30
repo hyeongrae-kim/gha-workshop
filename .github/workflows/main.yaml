@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout codes
-      uses: ./actions/checkout@v3
+      uses: actions/checkout@v3
 
     - name: Send a message to Webex Space
       shell: bash
@@ -31,7 +31,7 @@ jobs:
         WEBEX_ROOM_ID: ${{ secrets.WEBEX_ROOM_ID }}
         MARKDOWN_MESSAGE: "**Hello, world! You just ran an action from ${{ github.repository }}.**"
     - name: Send message from custom action to Webex
-      uses: ./.github/actions@main
+      uses: ./
       with:
         webexToken: ${{ secrets.WEBEX_TOKEN }}
         webexRoomId: ${{ secrets.WEBEX_ROOM_ID }}
