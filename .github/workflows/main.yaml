@@ -3,7 +3,7 @@ name: 'SWM Github Actions Basic'
 on: push
 
 env:
-  GLOBAL_LEVEL: 'GLOBAL ENV VALUE'
+  GLOBAL_LEVEL: 'GLOBAL VALUE'
 jobs:
   first-job:
     name: 'First Job'
@@ -16,65 +16,17 @@ jobs:
     steps:
     - name: Say Hello World 1
       shell: bash
-      env:
-        STEP_LEVEL_1: 'STEP LEVEL VALUE 1'
       run: |
         echo "Hello World from step 1"
-        echo "GLOBAL: $GLOBAL_LEVEL"
-        echo "JOB 1: ${{ env.JOB_LEVEL_1 }}"
-        echo "JOB 2: ${{ env.JOB_LEVEL_2 }}"
-        echo "STEP 1: ${{ env.STEP_LEVEL_1 }}"
-        echo "STEP 2: ${{ env.STEP_LEVEL_2 }}"
-        echo "STEP 3: ${{ env.STEP_LEVEL_3 }}"
-        echo "STEP 4: ${{ env.STEP_LEVEL_4 }}"
+
+        randomValue="swm$(echo $RANDOM)"
+
+        echo "STEP_VALUE=$randomValue" >> $GITHUB_ENV
     
     - name: Say Hello World 2
       shell: pwsh
-      env:
-        STEP_LEVEL_2: 'STEP LEVEL VALUE 2'
       run: |
         echo "Hello World from step 2"
-        echo "GLOBAL: $env:GLOBAL_LEVEL"
-        echo "JOB 1: ${{ env.JOB_LEVEL_1 }}"
-        echo "JOB 2: ${{ env.JOB_LEVEL_2 }}"
-        echo "STEP 1: ${{ env.STEP_LEVEL_1 }}"
-        echo "STEP 2: ${{ env.STEP_LEVEL_2 }}"
-        echo "STEP 3: ${{ env.STEP_LEVEL_3 }}"
-        echo "STEP 4: ${{ env.STEP_LEVEL_4 }}"
 
-  second-job:
-    name: 'First Job'
+        echo "STEP_VALUE: ${{ env.STEP_VALUE }}"
 
-    runs-on: ubuntu-latest
-
-    env:
-      JOB_LEVEL_2: 'JOB LEVEL VALUE 2'
-
-    steps:
-    - name: Say Hello World 3
-      shell: bash
-      env:
-        STEP_LEVEL_3: 'STEP LEVEL VALUE 3'
-      run: |
-        echo "Hello World from step 3"
-        echo "GLOBAL: $GLOBAL_LEVEL"
-        echo "JOB 1: ${{ env.JOB_LEVEL_1 }}"
-        echo "JOB 2: ${{ env.JOB_LEVEL_2 }}"
-        echo "STEP 1: ${{ env.STEP_LEVEL_1 }}"
-        echo "STEP 2: ${{ env.STEP_LEVEL_2 }}"
-        echo "STEP 3: ${{ env.STEP_LEVEL_3 }}"
-        echo "STEP 4: ${{ env.STEP_LEVEL_4 }}"
-    
-    - name: Say Hello World 4
-      shell: pwsh
-      env:
-        STEP_LEVEL_4: 'STEP LEVEL VALUE 4'
-      run: |
-        echo "Hello World from step 4"
-        echo "GLOBAL: $env:GLOBAL_LEVEL"
-        echo "JOB 1: ${{ env.JOB_LEVEL_1 }}"
-        echo "JOB 2: ${{ env.JOB_LEVEL_2 }}"
-        echo "STEP 1: ${{ env.STEP_LEVEL_1 }}"
-        echo "STEP 2: ${{ env.STEP_LEVEL_2 }}"
-        echo "STEP 3: ${{ env.STEP_LEVEL_3 }}"
-        echo "STEP 4: ${{ env.STEP_LEVEL_4 }}"
