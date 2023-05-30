@@ -16,7 +16,7 @@ jobs:
       run: |
         curl --location --request POST https://webexapis.com/v1/messages \
           --header 'Authorization: Bearer ${{ secrets.WEBEX_TOKEN }}' \
-          --header 'Content-type: applicatino/json' \
+          --header 'Content-type: application/json' \
           --data-raw '{
             "roomid": "${{ secrets.WEBEX_ROOM_ID }}",
             "text": "Second Message from GHA, hyeongrae "
