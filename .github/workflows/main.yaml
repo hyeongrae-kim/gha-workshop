@@ -27,3 +27,10 @@ jobs:
         WEBEX_TOKEN: ${{ secrets.WEBEX_TOKEN }}
         WEBEX_ROOM_ID: ${{ secrets.WEBEX_ROOM_ID }}
         MARKDOWN_MESSAGE: "**Hello, world! You just ran an action from ${{ github.repository }}.**"
+    - name: Send message from custom action to Webex
+      uses: .github/actions@main
+      with:
+        webexToken: ${{ secrets.WEBEX_TOKEN }}
+        webexRoomId: ${{ secrets.WEBEX_ROOM_ID }}
+        bodyText: "Message sent by GHA from ${{ github.repository }}"
+        bodyMarkdown: "**Hello**"
