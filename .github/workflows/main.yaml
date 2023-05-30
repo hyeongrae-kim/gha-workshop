@@ -11,35 +11,13 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
-    - name: Say Hello World 1
+    - name: Send a message to Webex Space
       shell: bash
       run: |
-        echo "Hello World"
-
-  deploy-dev:
-    name: 'Deploy to dev'
-
-    needs:
-      - build-test
-
-    runs-on: 'ubuntu-latest'
-
-    steps:
-    - name: Say Hello World 1
-      shell: bash
-      run: |
-        echo "Hello World"
-
-  deploy-staging:
-    name: 'Deploy to staging1'
-
-    needs:
-      - deploy-dev
-
-    runs-on: 'ubuntu-latest'
-
-    steps:
-    - name: Say Hello World 1
-      shell: bash
-      run: |
-        echo "Hello World"
+        curl -X POST https://webexapis.com/v1/messages \
+          -H "Authorization: Bearer ${{ secrets.WEBEX_TOKEN }}" \
+          -H "Content-type: applicatino/json" \
+          -d "{
+            "roomid": "${{ secrets.WEBEX_ROOM_ID }}",
+            "text": "Message from GHA, hyeongrae"
+          }"
