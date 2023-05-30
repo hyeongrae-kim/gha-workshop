@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         os: [ 'ubuntu-latest', 'windows-latest', 'macos-latest' ]
+        node js: [ '16', '18' ]
 
     runs-on: ${{ matrix.os }}
 
@@ -23,4 +24,5 @@ jobs:
       shell: bash
       run: |
         echo "OS: ${{ matrix.os }}"
+        echo "nodejs version: ${{ matrix.nodejs }}"
 
