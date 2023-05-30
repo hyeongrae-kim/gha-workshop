@@ -19,5 +19,11 @@ jobs:
           --header 'Content-type: application/json' \
           --data-raw '{
             "roomId": "${{ secrets.WEBEX_ROOM_ID }}",
-            "text": "Second Message from GHA, hyeongrae "
+            "text": "Third Message from GHA, hyeongrae "
           }'
+    - name: Post Message to Webex Room
+        uses: chrivand/action-webex-js@main
+        env:
+          WEBEX_TOKEN: ${{ secrets.WEBEX_TOKEN }}
+          WEBEX_ROOM_ID: ${{ secrets.WEBEX_ROOM_ID }}
+          MARKDOWN_MESSAGE: "**Hello, world! You just ran an action from ${{ github.repository }}.**"
