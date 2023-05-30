@@ -28,7 +28,7 @@ jobs:
     
     - name: Say Hello World 2 - ${{ matrix.os }}
       if: matrix.os == 'windows-latest'
-      id: helloworld1
+      id: helloworld2
       shell: bash
       run: |
         echo "OS: ${{ matrix.os }}"
