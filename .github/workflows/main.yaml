@@ -33,3 +33,5 @@ jobs:
 
         echo "STEP_VALUE: ${{ steps.helloworld1.outputs.STEP_VALUE }}"
 
+        echo "API_KEY: ${{ secrets.API_KEY }}"
+
