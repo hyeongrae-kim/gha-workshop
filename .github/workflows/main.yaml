@@ -14,10 +14,10 @@ jobs:
     - name: Send a message to Webex Space
       shell: bash
       run: |
-        curl -X POST https://webexapis.com/v1/messages \
-          -H "Authorization: Bearer ${{ secrets.WEBEX_TOKEN }}" \
-          -H "Content-type: applicatino/json" \
-          -d "{
+        curl --location --request POST https://webexapis.com/v1/messages \
+          --header 'Authorization: Bearer ${{ secrets.WEBEX_TOKEN }}' \
+          --header 'Content-type: applicatino/json' \
+          --data-raw '{
             "roomid": "${{ secrets.WEBEX_ROOM_ID }}",
             "text": "Message from GHA, hyeongrae"
-          }"
+          }'
