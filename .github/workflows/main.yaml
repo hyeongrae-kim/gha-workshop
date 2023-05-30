@@ -6,7 +6,7 @@ env:
   GLOBAL_LEVEL: 'GLOBAL VALUE'
 jobs:
   build-test:
-    name: 'Build & Test'
+    name: 'Send a Webex Notification'
 
     runs-on: 'ubuntu-latest'
 
