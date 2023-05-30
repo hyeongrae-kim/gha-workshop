@@ -11,6 +11,9 @@ jobs:
     runs-on: 'ubuntu-latest'
 
     steps:
+    - name: Checkout codes
+      uses: actions/checkout@v3
+      
     - name: Send a message to Webex Space
       shell: bash
       run: |
