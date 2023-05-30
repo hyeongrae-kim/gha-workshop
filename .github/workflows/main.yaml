@@ -22,6 +22,8 @@ jobs:
 
         randomValue="swm$(echo $RANDOM)"
 
+        echo "::add-mask::$randomValue"
+
         echo "STEP_VALUE=$randomValue" >> $GITHUB_OUTPUT
     
     - name: Say Hello World 2
