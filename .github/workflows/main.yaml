@@ -5,32 +5,58 @@ on: push
 env:
   GLOBAL_LEVEL: 'GLOBAL VALUE'
 jobs:
-  first-job:
-    name: 'First Job'
+  build-test:
+    name: 'Build & Test'
 
-    strategy:
-      matrix:
-        os: [ 'ubuntu-latest', 'windows-latest', 'macos-latest' ]
-        node js: [ '16', '18' ]
+    runs-on: 'ubuntu-latest'
 
-    runs-on: ${{ matrix.os }}
+      steps:
+      - name: Say Hello World 1
+        shell: bash
+        run: |
+          echo "Hello World"
 
-    env:
-      JOB_LEVEL_1: 'JOB LEVEL VALUE 1'
+  deploy-dev:
+    name: 'Deploy to dev'
 
-    steps:
-    - name: Say Hello World 1 - ${{ matrix.os }}
-      id: helloworld1
-      shell: bash
-      run: |
-        echo "OS: ${{ matrix.os }}"
-        echo "nodejs version: ${{ matrix.nodejs }}"
-    
-    - name: Say Hello World 2 - ${{ matrix.os }}
-      if: matrix.os == 'windows-latest' && matrix.nodejs == 16
-      id: helloworld2
-      shell: bash
-      run: |
-        echo "OS: ${{ matrix.os }}"
-        echo "nodejs version: ${{ matrix.nodejs }}"
+    runs-on: 'ubuntu-latest'
 
+      steps:
+      - name: Say Hello World 1
+        shell: bash
+        run: |
+          echo "Hello World"
+
+  deploy-staging:
+    name: 'Deploy to staging'
+
+    runs-on: 'ubuntu-latest'
+
+      steps:
+      - name: Say Hello World 1
+        shell: bash
+        run: |
+          echo "Hello World"
+
+  deploy-staging2:
+    name: 'Deploy to staging2'
+
+    runs-on: 'ubuntu-latest'
+
+      steps:
+      - name: Say Hello World 1
+        shell: bash
+        run: |
+          echo "Hello World"
+
+  deploy-staging3:
+    name: 'Deploy to staging3'
+
+    runs-on: 'ubuntu-latest'
+
+      steps:
+      - name: Say Hello World 1
+        shell: bash
+        run: |
+          echo "Hello World"
+  
